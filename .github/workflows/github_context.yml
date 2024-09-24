@@ -1,4 +1,4 @@
-name: Contexts
+name: GitHub Contexts
 on: push
 jobs:
   print:
