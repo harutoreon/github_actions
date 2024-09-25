@@ -4,7 +4,7 @@ env:
   EXAMPLE: Defined by workflow level     # ワークフローレベルで環境変数を定義
 jobs:
   print:
-    runs-on: ubntu-latest
+    runs-on: ubuntu-latest
     steps:
       - run: echo "${EXAMPLE}"           # ワークフローレベルの環境変数を出力
       - env:
