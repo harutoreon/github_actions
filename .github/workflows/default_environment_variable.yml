@@ -4,4 +4,4 @@ jobs:
   print:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ GITHUB_ACTOR }}"  # デフォルト環境変数を指定
+      - run: echo "${GITHUB_ACTOR}"  # デフォルト環境変数を指定
