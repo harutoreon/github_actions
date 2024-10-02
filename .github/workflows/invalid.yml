@@ -1,2 +1,7 @@
-# name: Invalid
-# on: push
+name: Invalid
+on: push
+jobs:
+  invalid_message:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Invalid workflow."
