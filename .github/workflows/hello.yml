@@ -1,5 +1,6 @@
 name: Hello                        # ワークフロー名
 on: push                           # イベント (プッシュ時に起動)
+concurrency: ${{ github.workflow }}
 jobs:                              # ジョブの定義
   hello:                           # ジョブ ID
     runs-on: ubuntu-latest         # ランナー (Ubuntuで実行)
