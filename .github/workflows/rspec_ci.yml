@@ -1,0 +1,17 @@
+name: RSpec CI
+on: push
+jobs:
+  rspec-ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: .ruby-version
+          bundler-cache: true
+
+      - name: Execution RSpec
+        run: bundle exec rspec
