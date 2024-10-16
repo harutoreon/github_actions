@@ -1,7 +1,7 @@
-name: RSpec CI
+name: RSpec
 on: push
 jobs:
-  rspec-ci:
+  rspec:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
