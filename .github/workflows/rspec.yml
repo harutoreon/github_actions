@@ -1,5 +1,7 @@
 name: RSpec
-on: push
+on:
+  push:
+    paths: ['spec/*.rb']
 jobs:
   rspec:
     runs-on: ubuntu-latest
