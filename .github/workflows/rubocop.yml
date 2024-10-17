@@ -1,7 +1,7 @@
-name: RSpec
+name: RuboCop
 on: push
 jobs:
-  rspec:
+  rubocop:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -13,5 +13,5 @@ jobs:
           ruby-version: .ruby-version
           bundler-cache: true
 
-      - name: Execution RSpec
-        run: bundle exec rspec
+      - name: Execution RuboCop
+        run: bundle exec rubocop
