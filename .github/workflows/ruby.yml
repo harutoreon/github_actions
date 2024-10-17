@@ -4,38 +4,53 @@ on:
   push
 
 jobs:
-  rubocop:
-    name: execution rubocop
+  # rubocop:
+  #   name: execution rubocop
+  #   runs-on: ubuntu-latest
+
+  #   steps:
+  #     - name: checkout code
+  #       uses: actions/checkout@v4
+
+  #     - name: setup ruby
+  #       uses: ruby/setup-ruby@v1
+  #       with:
+  #         ruby-version: .ruby-version
+  #         bundler-cache: true
+
+  #     - name: execution rubocop
+  #       run: bundle exec rubocop
+
+  # rspec:
+  #   name: execution rspec
+  #   runs-on: ubuntu-latest
+
+  #   needs: [rubocop]
+
+  #   steps:
+  #     - name: checkout code
+  #       uses: actions/checkout@v4
+
+  #     - name: setup ruby
+  #       uses: ruby/setup-ruby@v1
+  #       with:
+  #         ruby-version: .ruby-version
+  #         bundler-cache: true
+
+  #     - name: execution rspec
+  #       run: bundle exec rspec
+
+  ruby_ci:
     runs-on: ubuntu-latest
 
     steps:
-      - name: checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: setup ruby
-        uses: ruby/setup-ruby@v1
+      - uses: ruby/setup-ruby@v1
         with:
           ruby-version: .ruby-version
           bundler-cache: true
 
-      - name: execution rubocop
-        run: bundle exec rubocop
+      - run: bundle exec rubocop
 
-  rspec:
-    name: execution rspec
-    runs-on: ubuntu-latest
-
-    needs: [rubocop]
-
-    steps:
-      - name: checkout code
-        uses: actions/checkout@v4
-
-      - name: setup ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: .ruby-version
-          bundler-cache: true
-
-      - name: execution rspec
-        run: bundle exec rspec
+      - run: bundle exec rspec
