@@ -4,6 +4,27 @@ on:
   push
 
 jobs:
+  ruby_ci:
+    name: ruby static analysis and testing
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4
+
+      - name: setup ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: .ruby-version
+          bundler-cache: true
+
+      - name: execution rubocop
+        run: bundle exec rubocop
+
+      - name: execution rspec
+        run: bundle exec rspec
+
   # rubocop:
   #   name: execution rubocop
   #   runs-on: ubuntu-latest
@@ -40,17 +61,3 @@ jobs:
   #     - name: execution rspec
   #       run: bundle exec rspec
 
-  ruby_ci:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: .ruby-version
-          bundler-cache: true
-
-      - run: bundle exec rubocop
-
-      - run: bundle exec rspec
