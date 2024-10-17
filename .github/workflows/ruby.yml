@@ -4,21 +4,14 @@ on:
   push
 
 jobs:
-  ruby_ci:
+  rubocop:
+    name: execution rubocop
     runs-on: ubuntu-latest
-
     steps:
-      - name: checkout code
-        uses: actions/checkout@v4
+      - run: bundle exec rubocop
 
-      - name: setup ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: .ruby-version
-          bundler-cache: true
-
-      - name: execution rspec
-        run: bundle exec rspec
-
-      - name: execution rubocop
-        run: bundle exec rubocop
+  rspec:
+    name: execution rspec
+    runs-on: ubuntu-latest
+    steps:
+      - run: bundle exec rspec
