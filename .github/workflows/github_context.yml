@@ -2,7 +2,8 @@ name: GitHub Contexts
 on: push
 jobs:
   print:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
-      - run: echo "${{ github.actor }}"  # githubコンテキストの参照
-      - run: echo "${{ github.ref }}"  # refs/heads/main
+      - name: github.ref test
+        if: github.ref == 'refs/heads/main'
+        run: echo "${{ github.ref }}"  # refs/heads/main
